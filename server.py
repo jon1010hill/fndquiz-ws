@@ -125,7 +125,7 @@ async def echo(websocket, path):
 def producer():
     return 'Hello all, Shalom'
 
-start_server = websockets.serve(echo, "localhost", 8765)
+start_server = websockets.serve(echo, "localhost", 80)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 
