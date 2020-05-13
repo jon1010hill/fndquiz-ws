@@ -1,7 +1,9 @@
 import random
 import asyncio
 import websockets
+import os
 
+port = os.environ.get('PORT',8765)
 def convertLetterToNumber(letter):
     if(letter == 'a'):
         return 0
@@ -125,7 +127,7 @@ async def echo(websocket, path):
 def producer():
     return 'Hello all, Shalom'
 
-start_server = websockets.serve(echo, "localhost", 80)
+start_server = websockets.serve(echo, "0.0.0.0",port)
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
 
